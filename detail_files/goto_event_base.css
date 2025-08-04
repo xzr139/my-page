@@ -1,0 +1,53 @@
+/*
+    GOTOイベントのCSSはまとめたいので強引だがセレクタ違いだが内容が同一のcssも書く
+*/
+
+/* レスポンシブ画面用 */
+
+#responsiveBaseFrame span.goto_label {
+    background-color: #FF0000;
+    color: #FFFFFF;
+    padding: 3px 10px;
+    white-space: nowrap;
+}
+
+#responsiveBaseFrame span.goto_label.radius {
+    border-radius: 10px;
+    padding: 0 10px;
+}
+
+#responsiveBaseFrame span.goto_notice_messge {
+    color: #FF0000!important;
+}
+
+#responsiveBaseFrame span.goto_notice_messge > li {
+    list-style:none;
+    /* 1emだと中途半端に改行されるので収まるように0.7em*/
+    margin-left: 0.7em;
+    text-indent: -1em;
+}
+
+#responsiveBaseFrame span.goto_notice_messge > li:before {
+    content: "※"
+}
+
+.goto_agreement_li {
+    text-indent: -1em;
+}
+
+/* PCとSPでviewが分かれてるやつ用 */
+
+span.goto_label {
+    background-color: #FF0000!important;
+    color: #FFFFFF;
+    padding: 3px 10px;
+    white-space: nowrap;
+}
+
+span.goto_label.font_size_12 {
+    font-size: 12px;
+}
+
+span.goto_label.font_size_11 {
+    font-size: 11px;
+}

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<!-- saved from url=(0045)https://j.wovn.io/stallion_loader?token=P4kwS -->
+<html wovn-ignore=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width">
+    <meta name="robots" content="noindex">
+    <meta name="csrf-param" content="authenticity_token">
+<meta name="csrf-token" content="4Pe1CmOwCEKFhUqMjuQgJywQoGvuI2TNYugQHWqUqb1GP4L_A5mon3HwNGJknJElZOloB7gXYyGeRE06AZ4CtQ">
+  </head>
+  <body>
+    <script>
+  if (/widget_session/.test(document.cookie)) {
+    var stallionHref = location.href
+                            .toString()
+                            .replace(/\/stallion_loader\/?\?/, '/stallion?')
+                            .replace(/:\/\/j\./, '://cdn.')
+    location.href = stallionHref
+  } else {
+    window.top.postMessage({ messageType: 'WOVN_STALLION_AUTH_FAILED' }, '*')
+  }
+</script>
+
+  
+
+</body></html>

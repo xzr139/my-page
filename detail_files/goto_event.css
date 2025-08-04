@@ -1,0 +1,35 @@
+/* GOTOイベント用css - SP用 */
+#responsiveBaseFrame h3 > span.goto_label {
+    display: block;
+    width: 35%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#responsiveBaseFrame span.goto_label.event_detail_font_size {
+    font-size: 13px;
+}
+
+#responsiveBaseFrame span.goto_label.responsive_font_size {
+    font-size: 11px;
+}
+
+#responsiveBaseFrame span.goto_label.purchased_history_detail {
+    padding: 5px 10px 3px 10px;
+}
+
+span.goto_label.purchased_history {
+    display: inline-block;
+    padding: 1px 10px 0 10px;
+}
+
+#responsiveBaseFrame span.goto_label.purchased_history {
+    display: inline-block;
+    padding: 1px 10px 0 10px;
+}
+
+#responsiveBaseFrame span.goto_label.my_top_pick_up_evnet {
+    background-color: #FF0000!important;
+    width: 100px!important;
+    padding: 3px 10px!important;
+}
