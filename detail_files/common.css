@@ -1,0 +1,72 @@
+@charset "UTF-8";
+/* CSS Document */
+body, div, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ul, li, 
+brockquote, pre, address, 
+form, fieldset, legend, object {
+  margin: 0;
+  padding: 0;
+}
+body{
+    font-family: 'ヒラギノ角ゴ Pro W3', 'Hiragino Kaku Gothic Pro W3', 'メイリオ',Meiryo, 'ＭＳ Ｐゴシック', Arial, verdana, sans-serif;
+    line-height: 1.7;
+	font-size: 12px;
+	-webkit-text-size-adjust: none;
+}
+
+img{
+	vertical-align:top;
+	border: none;
+}
+
+a{
+    color: #19B5AF;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #53c8c3;
+}
+
+ul{
+
+	list-style-type: none;
+}
+
+em{
+	font-style: normal;	
+}
+p{
+	font-size: 12px;
+	line-height: 1.7;
+	text-align: left;
+}
+hr{
+	display:block;
+	height:1px;
+	border:0;
+	border-top:1px solid #ccc;
+	margin:1em 0;
+	padding:0;
+}
+
+form {
+    background-color: #fff!important;
+}
+
+th {
+    font-weight: normal;
+}
+
+section{
+/*	background-color:#f6f6f6;*/
+}
+.ui-hide{
+	display:none;
+}
+.ui-body-c, .ui-overlay-c {
+    background-color: #fff!important;
+}
+/*-- jquerymobileのリンクのboldオーバーライド --*/
+body .ui-body-c .ui-link {
+    font-weight: normal;
+}
