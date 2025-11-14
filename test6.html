@@ -57,15 +57,20 @@ var TLDataContext = {
     ya('hit', 'pageview,webPerformance');
 </script>
 <script>
-// 找到这个元素
-const el = document.querySelector('.elTicketNum');
+document.addEventListener('DOMContentLoaded', () => {
+  const min = 50;
+  const max = 500;
 
-// 生成 100~999 的随机数
-const num = Math.floor(Math.random() * 900) + 100;
+  // 找到页面上所有 .elTicketNum
+  const els = document.querySelectorAll('.elTicketNum');
 
-// 设置文本为 M-xxx
-el.textContent = 'M-' + num;
+  els.forEach(el => {
+    const num = Math.floor(Math.random() * (max - min + 1)) + min; // 50~500
+    el.textContent = 'M-' + num;
+  });
+});
 </script>
+
 </head>
 <body>
 <!-- #wrapper -->
@@ -158,20 +163,6 @@ https://blog-passmarket.yahoo.co.jp/archives/utilization.html"></div>
 <div class="ptsIndispErr" style="margin-bottom:20px"><p class="elInfo">レジにて購入権をご提示ください。</p></div>
 <div class="ptsTickRecept">
   <p class="elTicketNum">M-000</p>
-<script>
-// 找到这个 M-000 的元素（页面里第一个 .elTicketNum）
-const el = document.querySelector('.elTicketNum');
-
-// 生成 50~500 的随机整数（包含 50 和 500）
-const min = 50;
-const max = 500;
-const num = Math.floor(Math.random() * (max - min + 1)) + min;
-
-// 设置成 M-随机数
-if (el) {
-  el.textContent = 'M-' + num;
-}
-</script>
     <p style="font-size:12px;">購入権</p>
   <p class="elItemName">11月14日(金)〜11月15日(土)　購入権</p>
   </div>
