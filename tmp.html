@@ -142,7 +142,7 @@ https://blog-passmarket.yahoo.co.jp/archives/utilization.html"></div>
 <p style="text-align: left"></p>
 </section>
 <div class="ptsQr dspTransferAfter" style="display:none">
-<p class="elTicketNum">N-20</p>
+<p class="elTicketNum">N-20</span></p>
 <div class="ptsTransferAfter">
 <dl>
   <dt>このチケットは<br>さんが受け取り済みです</dt>
@@ -152,9 +152,9 @@ https://blog-passmarket.yahoo.co.jp/archives/utilization.html"></div>
 <div class="dspTransferBefore" style="display:block">
 <div class="ptsIndispErr" style="margin-bottom:20px"><p class="elInfo">入口にて整理券をご提示ください。</p></div>
 <div class="ptsTickRecept">
-  <p class="elTicketNum">N-20</p>
+  <p class="elTicketNum">N-<span id="numberDisplay"></span></p>
     <p style="font-size:12px;">【横浜会場】物販入場整理券6月12日(金)</p>
-  <p class="elItemName">6月12日物販入場整理券　14：00〜</p>
+  <p class="elItemName">6月12日物販入場整理券　<span id="timeDisplay"></span>：00〜</p>
   </div>
    <div class="ptsStatesBg" style="margin:0 auto 17px;background:url(https://psm-bucket-1.west.edge.storage-yahoo.jp/psm-udwpjcairrijnfo2rtuvg/ticket/88/02t7m8t60d551/de/56/N/1/m_1_XmDE6Hlf1jYimyslzWVVA.png);background-repeat:no-repeat;background-blend-mode:overlay;background-position:center top;background-size:300px 230px;width: 300px;">
           <div class="ptsStates" id="psmCheckinFieldN-20">
@@ -179,7 +179,7 @@ https://blog-passmarket.yahoo.co.jp/archives/utilization.html"></div>
           </div>
  </div>
  <div class="ptsBuyer">
-  <p class="decMb5">LIU XIAOLIANG</p>
+  <p class="decMb5"><span id="nameDisplay"></span></p>
     <p class="decMb5">購入日：2026年05月27日</p>
         </div>
 </div> <!-- dspTransferBefore -->
@@ -335,6 +335,15 @@ YAHOO.JP.passmarket.is_coupon_book = "0";
 </section><!-- /ypMdPageTopFixed -->
 <!-- /pageTopFixed -->
 
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const name = params.get('name');
+  const number = params.get('number');
+  const time = params.get('time');
+  document.getElementById('nameDisplay').textContent = name || 'LIU XIAOLIANG';
+  document.getElementById('numberDisplay').textContent = number || '20';
+  document.getElementById('timeDisplay').textContent = time || '14';
+</script>
 
 
 <div tabindex="-1" role="dialog" class="ui-dialog ui-corner-all ui-widget ui-widget-content ui-front ui-dialog-buttons ui-resizable" aria-describedby="dialog-message" aria-labelledby="ui-id-1" style="position: absolute; height: auto; width: 300px; top: 463.215px; left: 545.5px; z-index: 101; background: none rgb(255, 255, 255); color: rgb(34, 34, 34); font-size: 12px; text-align: center; border: 1px solid rgb(170, 170, 170); display: none;"><div class="ui-dialog-titlebar ui-corner-all ui-widget-header ui-helper-clearfix"><span id="ui-id-1" class="ui-dialog-title">&nbsp;</span><button type="button" class="ui-button ui-corner-all ui-widget ui-button-icon-only ui-dialog-titlebar-close" title="Close" style="background-color: rgb(255, 255, 255); border: 1px solid rgb(170, 170, 170);"><span class="ui-button-icon ui-icon ui-icon-closethick"></span><span class="ui-button-icon-space"> </span>Close</button></div><div id="dialog-message" class="ui-dialog-content ui-widget-content" style="width: auto; min-height: 0px; max-height: none; height: auto; background: none; color: rgb(34, 34, 34); font-size: 12px; text-align: center;">
