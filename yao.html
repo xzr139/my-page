@@ -1,188 +1,131 @@
-<!DOCTYPE html>
-<html lang="zh">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>呵呵懒懒不准用</title>
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
- 
-    body {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #f0f2f5;
-      font-family: 'Helvetica Neue', Arial, sans-serif;
-    }
- 
-    .card {
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
-      padding: 48px 40px 40px;
-      width: 100%;
-      max-width: 420px;
-    }
- 
-    h1 {
-      font-size: 22px;
-      font-weight: 700;
-      color: #1a1a2e;
-      margin-bottom: 32px;
-      letter-spacing: -0.3px;
-    }
- 
-    .field {
-      margin-bottom: 20px;
-    }
- 
-    label {
-      display: block;
-      font-size: 13px;
-      font-weight: 600;
-      color: #555;
-      margin-bottom: 6px;
-      letter-spacing: 0.3px;
-      text-transform: uppercase;
-    }
- 
-    input {
-      width: 100%;
-      padding: 11px 14px;
-      border: 1.5px solid #dde1e9;
-      border-radius: 8px;
-      font-size: 15px;
-      color: #1a1a2e;
-      outline: none;
-      transition: border-color 0.18s, background 0.18s;
-      background: #fafbfc;
-    }
- 
-    input:focus {
-      border-color: #4f6ef7;
-      background: #fff;
-    }
- 
-    input::placeholder { color: #bbb; }
- 
-    input.invalid {
-      border-color: #e03e3e !important;
-      background: #fff8f8;
-    }
- 
-    .hint {
-      font-size: 12px;
-      color: #aaa;
-      margin-top: 5px;
-    }
- 
-    .error-msg {
-      font-size: 12px;
-      color: #e03e3e;
-      margin-top: 5px;
-      display: none;
-    }
- 
-    button {
-      width: 100%;
-      margin-top: 10px;
-      padding: 13px;
-      background: #4f6ef7;
-      color: #fff;
-      border: none;
-      border-radius: 8px;
-      font-size: 15px;
-      font-weight: 600;
-      cursor: pointer;
-      letter-spacing: 0.3px;
-      transition: background 0.18s, transform 0.1s;
-    }
- 
-    button:hover { background: #3a57e8; }
-    button:active { transform: scale(0.98); }
-  </style>
-</head>
-<body>
-  <div class="card">
-    <h1>瑶总专用</h1>
- 
-    <div class="field">
-      <label for="name">名字</label>
-      <input type="text" id="name" placeholder="如：YAN YUYAO" />
-      <div class="hint">英文大写，格式：姓 名（中间一个空格）</div>
-      <div class="error-msg" id="name-err">请输入正确格式，如：YAN YUYAO（全大写英文，姓 空格 名）</div>
-    </div>
- 
-    <div class="field">
-      <label for="number">票号</label>
-      <input type="number" id="number" placeholder="10 ~ 200 的整数" min="10" max="200" step="1" />
-      <div class="hint">整数，范围 10 ~ 200</div>
-      <div class="error-msg" id="number-err">请输入 10 ~ 200 之间的整数</div>
-    </div>
- 
-    <div class="field">
-      <label for="time">入场时间</label>
-      <input type="number" id="time" placeholder="10 ~ 17 的整数" min="10" max="17" step="1" />
-      <div class="hint">整数，范围 10 ~ 17</div>
-      <div class="error-msg" id="time-err">请输入 10 ~ 17 之间的整数</div>
-    </div>
- 
-    <button onclick="handleSubmit()">提交</button>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-sans); }
+.card {
+  background: var(--color-background-primary);
+  border-radius: var(--border-radius-lg);
+  border: 0.5px solid var(--color-border-tertiary);
+  padding: 40px 36px 36px;
+  max-width: 420px;
+  margin: 24px auto;
+}
+h1 { font-size: 22px; font-weight: 500; color: var(--color-text-primary); margin-bottom: 28px; }
+.field { margin-bottom: 18px; }
+label { display: block; font-size: 12px; font-weight: 500; color: var(--color-text-secondary); margin-bottom: 6px; text-transform: uppercase; letter-spacing: 0.4px; }
+input[type="text"], input[type="number"] {
+  width: 100%; padding: 10px 12px;
+  border: 0.5px solid var(--color-border-secondary);
+  border-radius: var(--border-radius-md);
+  font-size: 15px; color: var(--color-text-primary);
+  background: var(--color-background-secondary);
+  outline: none;
+}
+input:focus { border-color: var(--color-border-info); background: var(--color-background-primary); }
+input.invalid { border-color: var(--color-border-danger) !important; background: var(--color-background-danger); }
+.hint { font-size: 12px; color: var(--color-text-tertiary); margin-top: 5px; }
+.error-msg { font-size: 12px; color: var(--color-text-danger); margin-top: 5px; display: none; }
+.time-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 4px; }
+.time-btn {
+  padding: 10px 8px; border: 0.5px solid var(--color-border-secondary);
+  border-radius: var(--border-radius-md); background: var(--color-background-secondary);
+  font-size: 14px; color: var(--color-text-primary); cursor: pointer;
+  text-align: center; transition: all 0.15s; user-select: none;
+}
+.time-btn:hover { background: var(--color-background-tertiary); border-color: var(--color-border-primary); }
+.time-btn.selected {
+  background: var(--color-background-info);
+  border-color: var(--color-border-info);
+  color: var(--color-text-info);
+  font-weight: 500;
+}
+.time-btn.invalid-sel { border-color: var(--color-border-danger); }
+.submit-btn {
+  width: 100%; margin-top: 12px; padding: 12px;
+  background: var(--color-background-info);
+  border: none; border-radius: var(--border-radius-md);
+  font-size: 15px; font-weight: 500; color: var(--color-text-info);
+  cursor: pointer; transition: opacity 0.15s, transform 0.1s;
+}
+.submit-btn:hover { opacity: 0.85; }
+.submit-btn:active { transform: scale(0.98); }
+</style>
+
+<div class="card">
+  <h2 class="sr-only">瑶总专用表单</h2>
+  <h1>未经许可乱用烂手</h1>
+
+  <div class="field">
+    <label for="name">名字</label>
+    <input type="text" id="name" placeholder="如：YAN YUYAO" />
+    <div class="hint">英文大写，格式：姓 名（中间一个空格）</div>
+    <div class="error-msg" id="name-err">请输入正确格式，如：YAN YUYAO（全大写英文，姓 空格 名）</div>
   </div>
- 
-  <script>
-    function showError(inputId, errId, show) {
-      const input = document.getElementById(inputId);
-      const err   = document.getElementById(errId);
-      if (show) {
-        input.classList.add('invalid');
-        err.style.display = 'block';
-      } else {
-        input.classList.remove('invalid');
-        err.style.display = 'none';
-      }
-    }
- 
-    function handleSubmit() {
-      const name   = document.getElementById('name').value.trim();
-      const number = parseInt(document.getElementById('number').value, 10);
-      const time   = parseInt(document.getElementById('time').value, 10);
- 
-      let valid = true;
- 
-      // 名字：全大写英文，姓 空格 名（各至少1个字母，只含字母和单个空格）
-      const namePattern = /^[A-Z]+( [A-Z]+)+$/;
-      if (!namePattern.test(name)) {
-        showError('name', 'name-err', true);
-        valid = false;
-      } else {
-        showError('name', 'name-err', false);
-      }
- 
-      // 数字：整数，10 ~ 200
-      const numRaw = document.getElementById('number').value.trim();
-      if (!numRaw || isNaN(number) || !Number.isInteger(number) || number < 10 || number > 200) {
-        showError('number', 'number-err', true);
-        valid = false;
-      } else {
-        showError('number', 'number-err', false);
-      }
- 
-      // 时间：整数，10 ~ 17
-      const timeRaw = document.getElementById('time').value.trim();
-      if (!timeRaw || isNaN(time) || !Number.isInteger(time) || time < 10 || time > 17) {
-        showError('time', 'time-err', true);
-        valid = false;
-      } else {
-        showError('time', 'time-err', false);
-      }
- 
-      if (!valid) return;
- 
-      const params = new URLSearchParams({ name, number, time });
-      window.location.href = `https://xzr139.github.io/my-page/tmp.html?${params.toString()}`;
-    }
-  </script>
-</body>
-</html>
+
+  <div class="field">
+    <label for="number">票号</label>
+    <input type="number" id="number" placeholder="10 ~ 50 的整数" min="10" max="50" step="1" />
+    <div class="hint">整数，范围 10 ~ 50</div>
+    <div class="error-msg" id="number-err">请输入 10 ~ 50 之间的整数</div>
+  </div>
+
+  <div class="field">
+    <label>入场时间</label>
+    <div class="time-grid" id="time-grid">
+      <div class="time-btn" data-value="10:00" data-alpha="A" onclick="selectTime(this)">10:00</div>
+      <div class="time-btn" data-value="10:30" data-alpha="B" onclick="selectTime(this)">10:30</div>
+      <div class="time-btn" data-value="11:00" data-alpha="C" onclick="selectTime(this)">11:00</div>
+      <div class="time-btn" data-value="11:30" data-alpha="D" onclick="selectTime(this)">11:30</div>
+    </div>
+    <div class="error-msg" id="time-err">请选择入场时间</div>
+  </div>
+
+  <button class="submit-btn" onclick="handleSubmit()">提交</button>
+</div>
+
+<script>
+let selectedAlpha = null;
+let selectedTimeEl = null;
+
+function selectTime(el) {
+  if (selectedTimeEl) selectedTimeEl.classList.remove('selected', 'invalid-sel');
+  el.classList.add('selected');
+  el.classList.remove('invalid-sel');
+  selectedTimeEl = el;
+  selectedAlpha = el.dataset.alpha;
+  document.getElementById('time-err').style.display = 'none';
+}
+
+function showError(inputId, errId, show) {
+  const input = document.getElementById(inputId);
+  const err = document.getElementById(errId);
+  if (show) { if(input) input.classList.add('invalid'); err.style.display = 'block'; }
+  else { if(input) input.classList.remove('invalid'); err.style.display = 'none'; }
+}
+
+function handleSubmit() {
+  const name = document.getElementById('name').value.trim();
+  const number = parseInt(document.getElementById('number').value, 10);
+  let valid = true;
+
+  const namePattern = /^[A-Z]+( [A-Z]+)+$/;
+  showError('name', 'name-err', !namePattern.test(name));
+  if (!namePattern.test(name)) valid = false;
+
+  const numRaw = document.getElementById('number').value.trim();
+  const numInvalid = !numRaw || isNaN(number) || !Number.isInteger(number) || number < 10 || number > 50;
+  showError('number', 'number-err', numInvalid);
+  if (numInvalid) valid = false;
+
+  if (!selectedAlpha) {
+    document.getElementById('time-err').style.display = 'block';
+    document.querySelectorAll('.time-btn').forEach(b => b.classList.add('invalid-sel'));
+    valid = false;
+  }
+
+  if (!valid) return;
+
+  const timeVal = selectedTimeEl.dataset.value;
+  const params = new URLSearchParams({ name, number, time: timeVal, alpha: selectedAlpha });
+  window.location.href = `https://xzr139.github.io/my-page/tmp.html?${params.toString()}`;
+}
+</script>
