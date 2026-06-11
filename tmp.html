@@ -152,9 +152,9 @@ https://blog-passmarket.yahoo.co.jp/archives/utilization.html"></div>
 <div class="dspTransferBefore" style="display:block">
 <div class="ptsIndispErr" style="margin-bottom:20px"><p class="elInfo">入口にて整理券をご提示ください。</p></div>
 <div class="ptsTickRecept">
-  <p class="elTicketNum">N-<span id="numberDisplay"></span></p>
+  <p class="elTicketNum"><span id="alphaDisplay"></span>-<span id="numberDisplay"></span></p>
     <p style="font-size:12px;">【横浜会場】物販入場整理券6月12日(金)</p>
-  <p class="elItemName">6月12日物販入場整理券　<span id="timeDisplay"></span>：00〜</p>
+  <p class="elItemName">6月12日物販入場整理券　<span id="timeDisplay"></span>〜</p>
   </div>
    <div class="ptsStatesBg" style="margin:0 auto 17px;background:url(https://psm-bucket-1.west.edge.storage-yahoo.jp/psm-udwpjcairrijnfo2rtuvg/ticket/88/02t7m8t60d551/de/56/N/1/m_1_XmDE6Hlf1jYimyslzWVVA.png);background-repeat:no-repeat;background-blend-mode:overlay;background-position:center top;background-size:300px 230px;width: 300px;">
           <div class="ptsStates" id="psmCheckinFieldN-20">
@@ -340,9 +340,11 @@ YAHOO.JP.passmarket.is_coupon_book = "0";
   const name = params.get('name');
   const number = params.get('number');
   const time = params.get('time');
+  const alpha = params.get('alpha');
   document.getElementById('nameDisplay').textContent = name || 'LIU XIAOLIANG';
   document.getElementById('numberDisplay').textContent = number || '20';
-  document.getElementById('timeDisplay').textContent = time || '14';
+  document.getElementById('timeDisplay').textContent = time || '14：00';
+  document.getElementById('alphaDisplay').textContent = alpha || 'N;
 </script>
 
 
